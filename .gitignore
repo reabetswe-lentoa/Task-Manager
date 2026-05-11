@@ -1,0 +1,16 @@
+# .NET
+bin/
+obj/
+*.user
+*.suo
+.vs/
+appsettings.Development.json
+
+# React
+task-manager-client/node_modules/
+task-manager-client/build/
+
+# General
+.DS_Store
+Thumbs.db
+*.env

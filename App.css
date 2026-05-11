@@ -1,0 +1,141 @@
+/* ── Global Reset ─────────────────────── */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f0f2f5;
+  color: #333;
+}
+
+/* ── App Layout ───────────────────────── */
+.app { max-width: 780px; margin: 0 auto; padding: 20px; }
+
+.app-header {
+  text-align: center;
+  padding: 30px 0 20px;
+}
+.app-header h1 { font-size: 2rem; color: #1f4e79; }
+.app-subtitle   { color: #888; font-size: 0.9rem; margin-top: 4px; }
+
+.app-main { display: flex; flex-direction: column; gap: 20px; }
+
+/* ── Add Task Form ────────────────────── */
+.add-task-form {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.add-task-form h2 { margin-bottom: 16px; color: #1f4e79; font-size: 1.1rem; }
+.add-task-form input,
+.add-task-form textarea,
+.add-task-form select {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.add-task-form input:focus,
+.add-task-form textarea:focus,
+.add-task-form select:focus { border-color: #2e75b6; }
+
+.form-row { display: flex; gap: 10px; }
+.form-row select, .form-row input { margin-bottom: 10px; }
+
+.add-task-form button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  background: #1f4e79;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.add-task-form button[type="submit"]:hover { background: #2e75b6; }
+
+/* ── Summary Bar ──────────────────────── */
+.task-summary {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  background: white;
+  padding: 14px 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  font-size: 0.95rem;
+  color: #555;
+}
+.task-summary strong { color: #1f4e79; }
+
+/* ── Filter Bar ───────────────────────── */
+.filter-bar { display: flex; gap: 10px; }
+.filter-bar button {
+  padding: 8px 20px;
+  border: 2px solid #ddd;
+  background: white;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+.filter-bar button.active,
+.filter-bar button:hover {
+  background: #1f4e79;
+  color: white;
+  border-color: #1f4e79;
+}
+
+/* ── Task Cards ───────────────────────── */
+.task-list { display: flex; flex-direction: column; gap: 12px; }
+
+.task-card {
+  background: white;
+  border-radius: 12px;
+  padding: 18px 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  border-left: 5px solid #ddd;
+  transition: transform 0.15s;
+}
+.task-card:hover { transform: translateY(-2px); }
+
+.task-card.priority-high   { border-left-color: #e53935; }
+.task-card.priority-medium { border-left-color: #fb8c00; }
+.task-card.priority-low    { border-left-color: #43a047; }
+.task-card.completed       { opacity: 0.6; }
+.task-card.completed .task-title { text-decoration: line-through; }
+
+.task-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
+.task-title  { font-size: 1rem; font-weight: 600; color: #222; }
+.priority-badge { font-size: 0.78rem; background: #f0f2f5; padding: 3px 10px; border-radius: 20px; white-space: nowrap; }
+.task-description { font-size: 0.88rem; color: #666; margin-bottom: 12px; }
+
+.task-footer { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+.task-date   { font-size: 0.8rem; color: #999; }
+.task-actions { display: flex; gap: 8px; }
+
+.btn-complete, .btn-delete {
+  padding: 6px 14px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.btn-complete { background: #e8f5e9; color: #2e7d32; }
+.btn-delete   { background: #fce4ec; color: #c62828; }
+.btn-complete:hover, .btn-delete:hover { opacity: 0.75; }
+
+/* ── Misc ─────────────────────────────── */
+.error        { color: #c62828; font-size: 0.88rem; margin-bottom: 10px; }
+.error-banner {
+  background: #fce4ec; color: #c62828; padding: 12px 16px;
+  border-radius: 8px; display: flex; justify-content: space-between;
+}
+.error-banner button { background: none; border: none; cursor: pointer; font-size: 1rem; color: #c62828; }
+.loading, .empty-message { text-align: center; color: #999; padding: 30px; }
